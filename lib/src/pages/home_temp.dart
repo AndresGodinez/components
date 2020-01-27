@@ -9,13 +9,11 @@ class HomeTemp extends StatelessWidget {
       appBar: AppBar(
         title: Text('Com'),
       ),
-      body: ListView(
-          children: _crea_opciones()
-      ),
+      body: ListView(children: _listaCorta()),
     );
   }
 
-  List<Widget> _crea_opciones() {
+  List<Widget> _lista() {
     List<Widget> lista = new List<Widget>();
 
     for (String opt in _opciones) {
@@ -28,5 +26,19 @@ class HomeTemp extends StatelessWidget {
     return lista;
   }
 
-
+  List<Widget> _listaCorta() {
+    return _opciones.map((item) {
+      return Column(
+        children: <Widget>[
+          ListTile(
+            title: Text(item),
+            subtitle: Text('da'),
+            leading: Icon(Icons.confirmation_number),
+            trailing: Icon(Icons.autorenew),
+          ),
+          Divider(),
+        ],
+      );
+    }).toList();
+  }
 }
